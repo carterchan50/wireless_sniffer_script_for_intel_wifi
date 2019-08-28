@@ -17,9 +17,15 @@ Test Environment:
  Command examples:(in case you type wrong, there will be usage shows up)
  
 1) capture by wireshark
-./sniffer.sh 11 HT20
-./sniffer.sh 36 VHT80
+
+   ./sniffer.sh 11 HT20
+
+   ./sniffer.sh 36 VHT80
  
 2) capture by tshark
-./sniffer.sh 11 HT20 text
-./sniffer.sh 36 HT20 text
+ 
+   ./sniffer.sh 11 HT20 text
+
+
+   ./sniffer.sh 36 HT20 text
+ 
