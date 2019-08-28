@@ -9,6 +9,8 @@ Prerequistes:
     >> the kernel supporting list, please reference the link:
       https://wireless.wiki.kernel.org/en/users/drivers/iwlwifi
       
+      the actual capturing ability depends on the wifi chipset itself.
+      
 Test Environment:
   1) Ubuntu 18.04.1, Kernel: 4.15-29
   2) Intel 8265
