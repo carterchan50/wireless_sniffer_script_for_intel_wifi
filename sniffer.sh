@@ -119,13 +119,20 @@ function calculate_center_freq(){
 
 check_param ${1} ${2};
 
+echo "unload iwlwifi"
 sudo modprobe -r iwlmvm
+sudo modprobe -r iwlwifi
 sleep 2
+
 echo "NOTE!!!!! wpa_supplicant will be disabled!!!!!!"
 sudo killall wpa_supplicant
 sleep 2
-sudo modprobe iwlwifi
+
+echo "load iwlwifi"
+sudo modprobe iwlwifi amsdu_size=3
 sleep 2
+
+echo "config wifi to monitor mode"
 sudo ifconfig wlp2s0 down
 sudo iw wlp2s0 set type monitor
 sudo ifconfig wlp2s0 up
@@ -140,6 +147,10 @@ else
 	sudo iw wlp2s0 set freq ${ctrl_freq} 80 ${center_freq}
 fi
 
+echo "check wifi status"
+iw dev
+
+echo "launch capturing tool"
 if [ "$#" -eq 3 ] && [ ${3} == "ui" ]; then
 	sudo wireshark
 elif [ "$#" -eq 3 ] && [ ${3} == "text" ]; then
